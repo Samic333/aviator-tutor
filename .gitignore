@@ -1,0 +1,27 @@
+/vendor/
+/node_modules/
+
+# Laravel files
+/public/storage
+/storage/*.key
+/storage/logs/*.log
+/storage/framework/cache/*
+/storage/framework/views/*
+/storage/framework/sessions/*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE & System Files
+/.vscode
+/.idea
+*.log
+npm-debug.log
+yarn-error.log
+
+# Cache & Build
+/public/hot
+/public/build
+.phpunit.result.cache

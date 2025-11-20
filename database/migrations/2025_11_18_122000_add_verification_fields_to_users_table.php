@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            if (! Schema::hasColumn('users', 'verification_code')) {
+                $table->string('verification_code', 10)->nullable()->after('role');
+            }
+
+            if (! Schema::hasColumn('users', 'verification_expires_at')) {
+                $table->dateTime('verification_expires_at')->nullable()->after('verification_code');
+            }
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            if (Schema::hasColumn('users', 'verification_code')) {
+                $table->dropColumn('verification_code');
+            }
+
+            if (Schema::hasColumn('users', 'verification_expires_at')) {
+                $table->dropColumn('verification_expires_at');
+            }
+        });
+    }
+};
