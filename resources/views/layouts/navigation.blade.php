@@ -27,7 +27,10 @@
                         <a href="{{ route('admin.tutors.index') }}" class="text-base text-gray-700 hover:text-sky-600">Admin</a>
                     @endif
                     <a href="{{ route('dashboard') ?? '#' }}" class="text-base text-gray-700 hover:text-sky-600">Dashboard</a>
-                    <a href="{{ route('logout') }}" class="text-base text-gray-700 hover:text-sky-600">Logout</a>
+                    <form method="POST" action="{{ route('logout') }}" class="inline-block">
+                        @csrf
+                        <button type="submit" class="text-base text-gray-700 hover:text-sky-600">Logout</button>
+                    </form>
                     @if (Route::has('profile.show'))
                         <a href="{{ route('profile.show') }}" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-sky-100 text-sky-700 text-xs font-semibold">
                             {{ strtoupper(substr(Auth::user()->name ?? 'U', 0, 1)) }}
@@ -73,7 +76,10 @@
                     <a href="{{ route('admin.tutors.index') }}" class="block text-base font-medium text-gray-700 hover:text-sky-600">Admin</a>
                 @endif
                 <a href="{{ route('dashboard') ?? '#' }}" class="block text-base font-medium text-gray-700 hover:text-sky-600">Dashboard</a>
-                <a href="{{ route('logout') }}" class="block text-base font-medium text-gray-700 hover:text-sky-600">Logout</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="block text-left w-full text-base font-medium text-gray-700 hover:text-sky-600">Logout</button>
+                </form>
                 <div class="flex items-center space-x-3">
                     @if (Route::has('profile.show'))
                         <a href="{{ route('profile.show') }}" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-sky-100 text-sky-700 text-xs font-semibold">
