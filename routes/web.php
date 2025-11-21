@@ -44,13 +44,14 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::get('/my-bookings', [BookingController::class, 'studentIndex'])->name('bookings.student');
     Route::get('/tutor/bookings', [BookingController::class, 'tutorIndex'])->name('bookings.tutor');
     Route::post('/tutors/{tutorId}/book', [BookingController::class, 'store'])->name('bookings.store');
-    Route::get('/tutor/profile', [TutorProfileController::class, 'edit'])->name('tutor.profile.edit');
-    Route::post('/tutor/profile', [TutorProfileController::class, 'update'])->name('tutor.profile.update');
+Route::get('/tutor/profile', [TutorProfileController::class, 'edit'])->name('tutor.profile.edit');
+Route::post('/tutor/profile', [TutorProfileController::class, 'update'])->name('tutor.profile.update');
 
-    Route::get('/tutor/apply', [TutorApplicationController::class, 'create'])->name('tutor.apply');
-    Route::post('/tutor/apply', [TutorApplicationController::class, 'store'])->name('tutor.apply.store');
-    Route::get('/tutor/application-submitted', [TutorApplicationController::class, 'thankyou'])->name('tutor.apply.thankyou');
 });
+
+Route::get('/tutor/apply', [TutorApplicationController::class, 'create'])->name('tutor.apply');
+Route::post('/tutor/apply', [TutorApplicationController::class, 'store'])->name('tutor.apply.store');
+Route::get('/tutor/application-submitted', [TutorApplicationController::class, 'thankyou'])->name('tutor.apply.thankyou');
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/tutors/applications', [AdminTutorController::class, 'index'])->name('tutors.index');

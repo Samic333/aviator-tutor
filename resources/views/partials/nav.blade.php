@@ -33,6 +33,12 @@
                     @endif
 
                     <a href="{{ route('dashboard') ?? '#' }}" class="text-sm text-gray-700 hover:text-sky-600">Dashboard</a>
+                    <form method="POST" action="{{ route('logout') }}" class="hidden sm:inline-block">
+                        @csrf
+                        <button type="submit" class="text-sm text-gray-700 hover:text-sky-600">
+                            Logout
+                        </button>
+                    </form>
 
                     @if (Route::has('profile.show'))
                         <a href="{{ route('profile.show') }}" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-sky-100 text-sky-700 text-xs font-semibold">
@@ -81,6 +87,10 @@
                     <a href="{{ route('admin.tutors.index') }}" class="block text-sm font-medium text-gray-700 hover:text-sky-600">Admin</a>
                 @endif
                 <a href="{{ route('dashboard') ?? '#' }}" class="block text-sm font-medium text-gray-700 hover:text-sky-600">Dashboard</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="w-full text-left text-sm font-medium text-gray-700 hover:text-sky-600">Logout</button>
+                </form>
                 <div class="flex items-center space-x-3">
                     @if (Route::has('profile.show'))
                         <a href="{{ route('profile.show') }}" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-sky-100 text-sky-700 text-xs font-semibold">
