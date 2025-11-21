@@ -23,5 +23,5 @@ yarn-error.log
 
 # Cache & Build
 /public/hot
-/public/build
+
 .phpunit.result.cache
