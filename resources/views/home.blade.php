@@ -229,6 +229,78 @@
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+/* Header styling override */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.75rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 1.05rem;
+}
+
+header a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+header a:hover {
+    color: #111827;
+}
+
+/* If the nav links are wrapped in a <nav> or a simple container, keep them in one line */
+header nav,
+header .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Keep any auth buttons/links aligned on the right */
+header .auth-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Mobile tweak */
+@media (max-width: 640px) {
+    header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding-inline: 1.1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Footer styling override */
+footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+footer a {
+    color: #6b7280;
+    text-decoration: none;
+    margin: 0 0.6rem;
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: #111827;
+}
+
+footer p,
+footer div {
+    margin: 0.3rem 0;
+}
 </style>
 
 <div class="at-home">
