@@ -12,7 +12,7 @@
 .at-header-inner {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0.75rem 1.75rem;
+    padding: 0.85rem 1.75rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,7 +47,7 @@
 }
 
 .at-logo-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #0f172a;
 }
@@ -60,16 +60,16 @@
 .at-nav-main {
     display: flex;
     align-items: center;
-    gap: 1.75rem;
-    font-size: 1rem;
-    flex: 1;
     justify-content: center;
+    gap: 1.75rem;
+    font-size: 1.05rem;
+    flex: 1;
 }
 
 .at-nav-main a {
     color: #4b5563;
-    text-decoration: none;
     font-weight: 500;
+    text-decoration: none;
 }
 
 .at-nav-main a:hover {
@@ -80,7 +80,7 @@
     display: flex;
     align-items: center;
     gap: 0.9rem;
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 
 .at-nav-link {
@@ -127,13 +127,7 @@
         display: none; /* we can add a mobile menu later */
     }
     .at-logo-title {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .at-header-inner {
-        padding-inline: 1rem;
+        font-size: 1.05rem;
     }
 }
 </style>
