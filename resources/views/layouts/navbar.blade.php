@@ -12,7 +12,7 @@
 .at-header-inner {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0.85rem 1.75rem;
+    padding: 0.9rem 1.75rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -68,8 +68,8 @@
 
 .at-nav-main a {
     color: #4b5563;
-    font-weight: 500;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .at-nav-main a:hover {
@@ -124,7 +124,7 @@
         gap: 1rem;
     }
     .at-nav-main {
-        display: none; /* we can add a mobile menu later */
+        display: none; /* mobile menu can be added later */
     }
     .at-logo-title {
         font-size: 1.05rem;
