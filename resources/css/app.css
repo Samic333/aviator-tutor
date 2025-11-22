@@ -37,6 +37,37 @@
 }
 
 @layer components {
+    .at-page {
+        min-height: 100vh;
+        background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 40%);
+        padding-bottom: 2rem;
+    }
+    .at-navbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background-color: #ffffff;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+    .at-navbar .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .at-footer {
+        border-top: 1px solid rgba(148, 163, 184, 0.3);
+        padding: 2rem 1.25rem;
+        background-color: #ffffff;
+        margin-top: 3rem;
+    }
+    .at-footer .container {
+        max-width: 1120px;
+        margin: 0 auto;
+    }
     .btn-primary {
         @apply inline-flex items-center justify-center px-4 py-2.5 rounded-full text-sm font-semibold text-white bg-sky-600 hover:bg-sky-700 shadow-sm transition;
     }

@@ -1,5 +1,5 @@
-<footer class="bg-white border-t border-slate-200">
-    <div class="app-container py-10 sm:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<footer class="at-footer">
+    <div class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
             <div class="flex items-center space-x-2 mb-3">
                 <div class="h-9 w-9 rounded-full bg-sky-500 flex items-center justify-center shadow-sm">
@@ -41,7 +41,7 @@
         </div>
     </div>
     <div class="border-t border-slate-200">
-        <div class="app-container py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs text-slate-500">
+        <div class="container py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs text-slate-500">
             <span>© {{ date('Y') }} Aviator Tutor. Built by aviation professionals.</span>
             <div class="flex items-center space-x-4 mt-2 sm:mt-0">
                 <a href="{{ route('home') }}#how-it-works" class="hover:text-sky-700">How it works</a>

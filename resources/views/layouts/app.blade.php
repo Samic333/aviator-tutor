@@ -13,16 +13,14 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased bg-[var(--at-bg)] text-[var(--at-text-main)]">
-        <div class="min-h-screen flex flex-col">
-            @include('partials.nav')
+    <body class="font-sans antialiased at-page text-[var(--at-text-main)] flex flex-col">
+        @include('partials.nav')
 
-            <!-- Page Content -->
-            <main class="flex-1">
-                @yield('content')
-            </main>
+        <!-- Page Content -->
+        <main class="flex-1">
+            @yield('content')
+        </main>
 
-            @includeWhen(View::exists('partials.footer'), 'partials.footer')
-        </div>
+        @includeWhen(View::exists('partials.footer'), 'partials.footer')
     </body>
 </html>
