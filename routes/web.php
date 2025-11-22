@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::view('/specialties', 'specialties')->name('specialties');
 Route::view('/trust', 'trust')->name('trust');
 Route::view('/become-tutor', 'become-tutor')->name('become-tutor');
+Route::view('/about', 'pages.about')->name('about');
+Route::view('/faq', 'pages.faq')->name('faq');
+Route::view('/contact', 'pages.contact')->name('contact');
 
 // Authentication
 Route::get('/login', [LoginController::class, 'show'])->name('login');

@@ -164,9 +164,9 @@ a {
                 <div class="at-footer-links">
                     <a href="{{ url('/tutors') }}">Browse Tutors</a>
                     <a href="{{ url('/specialties') }}">Specialties</a>
-                    <a href="{{ url('/about') }}">About</a>
-                    <a href="{{ url('/faq') }}">FAQ</a>
-                    <a href="{{ url('/contact') }}">Contact</a>
+                    <a href="{{ route('about') }}">About</a>
+                    <a href="{{ route('faq') }}">FAQ</a>
+                    <a href="{{ route('contact') }}">Contact</a>
                 </div>
                 <div class="at-footer-copy">
                     Â© {{ date('Y') }} Aviator Tutor. Built by aviation professionals.
