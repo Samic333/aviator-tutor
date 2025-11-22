@@ -11,7 +11,7 @@
                     Live aviation coaching • pilots • cabin crew • ATC • engineers
                 </p>
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
-                    Train with real aviation professionals, anywhere in the world and fly like a pro.
+                    Aviator Tutor — Learn From Aviation Experts Worldwide
                 </h1>
                 <p class="text-sm sm:text-base text-slate-600 max-w-2xl">
                     Aviator Tutor connects you with verified airline instructors for checkrides, type ratings, interviews,
