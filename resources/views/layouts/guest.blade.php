@@ -55,76 +55,6 @@ a {
     flex-direction: column;
 }
 
-.at-nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-}
-
-.at-nav-inner,
-.at-footer-inner,
-.at-main-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 1.25rem;
-}
-
-.at-nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
-    padding: 0 1.75rem;
-}
-
-.at-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    font-size: 1.15rem;
-}
-
-.at-brand-badge {
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--at-primary), #38bdf8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 700;
-}
-
-.at-nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    font-size: 1.05rem;
-}
-
-.at-nav-links a {
-    color: var(--at-text-muted);
-    font-weight: 500;
-}
-
-.at-nav-links a:hover {
-    color: var(--at-text-main);
-}
-
-.at-nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1.05rem;
-}
-
 .at-btn {
     border-radius: 999px;
     border: 1px solid transparent;
@@ -148,16 +78,6 @@ a {
 .at-btn-primary:hover {
     transform: translateY(-1px);
     box-shadow: 0 22px 60px rgba(37, 99, 235, 0.55);
-}
-
-.at-btn-ghost {
-    background-color: transparent;
-    border-color: rgba(148, 163, 184, 0.6);
-    color: var(--at-text-main);
-}
-
-.at-btn-ghost:hover {
-    background-color: rgba(148, 163, 184, 0.06);
 }
 
 .at-main {
@@ -198,21 +118,6 @@ a {
 
 .at-footer-links a:hover {
     color: var(--at-text-main);
-}
-
-@media (max-width: 900px) {
-    .at-nav-inner {
-        padding-inline: 1rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .at-nav-links {
-        display: none;
-    }
-    .at-main {
-        padding-top: 1rem;
-    }
 }
 </style>
     </head>
