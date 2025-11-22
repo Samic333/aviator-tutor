@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-slate-50 min-h-screen">
     {{-- HERO --}}
-    <section class="bg-gradient-to-b from-sky-50 via-white to-slate-50 border-b border-slate-100">
+    <section class="hero" style="background: #f5f9ff; padding: 3rem 0;">
         <div class="app-container py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             <div class="space-y-5">
                 <p class="inline-flex items-center text-[11px] font-semibold text-sky-700 bg-sky-50 px-3 py-1 rounded-full">
