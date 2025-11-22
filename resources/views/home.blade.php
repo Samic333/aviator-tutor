@@ -1,212 +1,374 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-slate-50 min-h-screen">
-    {{-- HERO --}}
-    <section class="hero" style="background: #f5f9ff; padding: 3rem 0;">
-        <div class="app-container py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-            <div class="space-y-5">
-                <p class="inline-flex items-center text-[11px] font-semibold text-sky-700 bg-sky-50 px-3 py-1 rounded-full">
-                    <span class="h-2 w-2 rounded-full bg-emerald-500 mr-2"></span>
-                    Live aviation coaching • pilots • cabin crew • ATC • engineers
-                </p>
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
-                    Aviator Tutor — Learn From Aviation Experts Worldwide
-                </h1>
-                <p class="text-sm sm:text-base text-slate-600 max-w-2xl">
-                    Aviator Tutor connects you with verified airline instructors for checkrides, type ratings, interviews,
-                    SOP refreshers, and realistic scenario training—scheduled in your local time.
-                </p>
-                <div class="flex flex-wrap gap-3">
-                    <a href="{{ route('tutors.index') }}" class="btn-primary">
-                        Find a tutor
-                    </a>
-                    <a href="{{ route('tutor.apply') }}" class="btn-secondary">
-                        Become a tutor
-                    </a>
-                </div>
-                <div class="flex flex-wrap gap-4 text-xs sm:text-[13px] text-slate-600">
-                    <span class="flex items-center space-x-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-500"></span><span>4.9★ average rating</span></span>
-                    <span class="flex items-center space-x-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-500"></span><span>150+ aviation tutors worldwide</span></span>
-                    <span class="flex items-center space-x-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-500"></span><span>24/7 availability in your time zone</span></span>
-                </div>
+<style>
+/* Simple, clean homepage design just for this view */
+
+.at-home {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    color: #0f172a;
+}
+
+.at-home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.at-home-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.2rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.06);
+    color: #2563eb;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.at-home h1 {
+    font-size: clamp(2rem, 3vw + 1.2rem, 2.9rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+}
+
+.at-home-lead {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 1.7rem;
+    max-width: 32rem;
+}
+
+.at-home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.at-btn {
+    border-radius: 999px;
+    border: 1px solid transparent;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    transition: all 0.18s ease-out;
+    text-decoration: none;
+}
+
+.at-btn-primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    box-shadow: 0 18px 45px rgba(37, 99, 235, 0.4);
+}
+
+.at-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 22px 60px rgba(37, 99, 235, 0.55);
+}
+
+.at-btn-outline {
+    background-color: transparent;
+    border-color: #cbd5f5;
+    color: #1e293b;
+}
+
+.at-btn-outline:hover {
+    background-color: #eef2ff;
+}
+
+.at-home-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.at-home-meta strong {
+    color: #0f172a;
+}
+
+.at-hero-card {
+    background: radial-gradient(circle at top left, #eff6ff 0, #ffffff 65%);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.at-hero-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.at-hero-tutor {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.at-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.at-helptext {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.at-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.at-chip {
+    font-size: 0.75rem;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    background-color: #e0edff;
+    color: #2563eb;
+}
+
+.at-section {
+    margin-top: 2.75rem;
+}
+
+.at-section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.at-section-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.at-section-subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+    max-width: 26rem;
+}
+
+.at-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.at-card {
+    background-color: #ffffff;
+    border-radius: 1.1rem;
+    padding: 1.25rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.at-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+}
+
+.at-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .at-home-hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .at-home {
+        padding-inline: 1.2rem;
+    }
+    .at-home-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .at-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .at-grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+</style>
+
+<div class="at-home">
+    <!-- HERO -->
+    <section class="at-home-hero">
+        <div>
+            <div class="at-home-eyebrow">
+                <span>Online aviation coaching</span>
+            </div>
+            <h1>Aviator Tutor — learn from real aviation experts worldwide</h1>
+            <p class="at-home-lead">
+                Book 1-on-1 sessions with airline captains, cabin crew trainers, ATC instructors and engineers. 
+                Prepare for sims, interviews, checks and exams from anywhere.
+            </p>
+
+            <div class="at-home-actions">
+                <a href="{{ url('/tutors') }}" class="at-btn at-btn-primary">Find a tutor</a>
+                <a href="{{ url('/become-tutor') }}" class="at-btn at-btn-outline">Become a tutor</a>
             </div>
 
-            <div class="w-full max-w-lg mx-auto card space-y-4">
-                <div class="flex items-center">
-                    <div class="h-12 w-12 rounded-full bg-sky-100 flex items-center justify-center text-sky-700 font-semibold text-sm mr-3">
-                        AT
-                    </div>
+            <div class="at-home-meta">
+                <span><strong>For aviation only</strong> · pilots, cabin crew, ATC, engineers</span>
+                <span><strong>Pay per lesson</strong> · no monthly contract</span>
+            </div>
+        </div>
+
+        <aside class="at-hero-card">
+            <div class="at-hero-card-header">
+                <div class="at-hero-tutor">
+                    <div class="at-avatar">LC</div>
                     <div>
-                        <p class="text-sm font-semibold text-slate-900">Airline Training Captain · Q400/B737</p>
-                        <p class="text-[11px] text-slate-500">Recurrent checks · Abnormals · CRM/TEM</p>
+                        <div style="font-weight: 600; font-size: 0.95rem;">Q400 / B737 Training Captain</div>
+                        <div class="at-helptext">Type rating · sim checks · CRM</div>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-600">
-                    <div class="bg-slate-50 rounded-2xl px-3 py-2">
-                        <p class="font-semibold text-slate-900 mb-1">Teaches</p>
-                        <p>Profiles & approaches<br>Engine failures<br>LOFT scenarios</p>
-                    </div>
-                    <div class="bg-slate-50 rounded-2xl px-3 py-2">
-                        <p class="font-semibold text-slate-900 mb-1">Best for</p>
-                        <p>Sim & line checks<br>Type-rating prep<br>Interview drills</p>
-                    </div>
+                <div>
+                    <div style="font-weight: 600; font-size: 0.95rem;">USD 45 / hr</div>
+                    <div class="at-helptext">Live on Zoom</div>
                 </div>
-                <div class="flex items-center justify-between text-xs">
-                    <div class="flex items-center space-x-1">
-                        <span class="text-amber-400">★★★★★</span>
-                        <span class="text-slate-500">4.9 · 320 lessons</span>
-                    </div>
-                    <span class="font-semibold text-sky-700">USD 45 / hr</span>
-                </div>
-                <button class="w-full btn-primary">
-                    Book trial lesson
-                </button>
             </div>
-        </div>
+
+            <div class="at-chip-row">
+                <span class="at-chip">Simulator prep</span>
+                <span class="at-chip">Profiles & approaches</span>
+                <span class="at-chip">Abnormals & failures</span>
+            </div>
+
+            <p class="at-helptext">
+                “We rehearse your exact briefing, profiles and abnormal drills so your check feels like another practice flight.”
+            </p>
+        </aside>
     </section>
 
-    {{-- CATEGORIES --}}
-    <section id="browse" class="section">
-        <div class="section-header">
-            <h2 class="text-lg sm:text-xl font-semibold text-slate-900">Choose your path</h2>
-            <a href="{{ route('tutors.index') }}" class="text-xs sm:text-sm font-medium text-sky-700 hover:text-sky-800">Browse tutors →</a>
-        </div>
-        <p class="text-sm text-slate-600 mb-6">Reach the right instructor—whether you fly the line, brief in the cabin, work the tower, or maintain the fleet.</p>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            @foreach ([
-                ['title' => 'Pilots', 'desc' => 'Type ratings, sim checks, airline interviews.'],
-                ['title' => 'Cabin Crew', 'desc' => 'Grooming, service, safety, interviews.'],
-                ['title' => 'ATC', 'desc' => 'Phraseology, sims, assessments.'],
-                ['title' => 'Engineers', 'desc' => 'Systems, exams, troubleshooting.'],
-            ] as $cat)
-                <a href="{{ route('tutors.index') }}" class="group card flex flex-col justify-between">
-                    <div>
-                        <p class="text-sm font-semibold text-slate-900 mb-1">{{ $cat['title'] }}</p>
-                        <p class="text-xs text-slate-600">{{ $cat['desc'] }}</p>
-                    </div>
-                    <span class="mt-3 text-[11px] font-semibold text-sky-700 group-hover:text-sky-800">Explore {{ strtolower($cat['title']) }} tutors →</span>
-                </a>
-            @endforeach
-        </div>
-    </section>
-
-    {{-- FEATURED TUTORS --}}
-    <section class="bg-white border-y border-slate-100">
-        <div class="section">
-            <div class="section-header">
-                <h2 class="text-lg sm:text-xl font-semibold text-slate-900">Featured tutors</h2>
-                <a href="{{ route('tutors.index') }}" class="text-xs sm:text-sm font-medium text-sky-700 hover:text-sky-800">See all →</a>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                @foreach ([
-                    ['initials'=>'AB','name'=>'Airline Training Captain','role'=>'Q400 · B737 · Line checks','desc'=>'Checkrides, profiles, abnormals, CRM/TEM','price'=>'USD 45 / hr'],
-                    ['initials'=>'CC','name'=>'Senior Cabin Crew Trainer','role'=>'Service · Safety · Interviews','desc'=>'Mock interviews, service sims, safety drills','price'=>'USD 25 / hr'],
-                    ['initials'=>'GI','name'=>'ATPL Ground Instructor','role'=>'Performance · Systems · OPS','desc'=>'Short, focused ATPL theory refreshers','price'=>'USD 30 / hr'],
-                ] as $tutor)
-                    <div class="card flex flex-col bg-slate-50">
-                        <div class="flex items-center mb-3">
-                            <div class="h-10 w-10 rounded-full bg-sky-100 flex items-center justify-center text-sky-700 text-xs font-semibold mr-3">{{ $tutor['initials'] }}</div>
-                            <div>
-                                <p class="text-sm font-semibold text-slate-900">{{ $tutor['name'] }}</p>
-                                <p class="text-[11px] text-slate-500">{{ $tutor['role'] }}</p>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-600 mb-3">{{ $tutor['desc'] }}</p>
-                        <div class="mt-auto flex items-center justify-between text-xs">
-                            <span class="font-semibold text-sky-700">{{ $tutor['price'] }}</span>
-                            <a href="{{ route('tutors.index') }}" class="font-medium text-sky-700 hover:text-sky-800">View profiles</a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- WHAT AVIATOR TUTOR OFFERS --}}
-    <section id="specialties" class="section">
-        <h2 class="text-lg sm:text-xl font-semibold text-slate-900 mb-6 text-center">See what Aviator Tutor offers</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="card bg-slate-50">
-                <h3 class="text-base font-semibold text-slate-900 mb-1">1-on-1 coaching</h3>
-                <p class="text-sm text-slate-600 mb-3">
-                    Book private sessions with airline pilots, instructors, cabin crew and ATC to work on checks, interviews, type ratings or language.
-                </p>
-                <a href="{{ route('tutors.index') }}" class="text-xs font-medium text-sky-700 hover:text-sky-800">Find my tutor →</a>
-            </div>
-            <div class="card bg-slate-50">
-                <h3 class="text-base font-semibold text-slate-900 mb-1">Group classes</h3>
-                <p class="text-sm text-slate-600 mb-3">
-                    Join focused group sessions on CRM, SOP, exam revision and airline assessments. Perfect for crew preparing together.
-                </p>
-                <span class="badge bg-amber-50 text-amber-700">Coming soon</span>
-            </div>
-            <div class="card bg-slate-50">
-                <h3 class="text-base font-semibold text-slate-900 mb-1">Practice for free</h3>
-                <p class="text-sm text-slate-600 mb-3">
-                    Access resources, scenarios and community discussions to keep your aviation knowledge sharp between flights.
-                </p>
-                <span class="badge bg-emerald-50 text-emerald-700">In planning</span>
-            </div>
-        </div>
-    </section>
-
-    {{-- HOW IT WORKS --}}
-    <section id="how-it-works" class="section">
-        <h2 class="text-lg sm:text-xl font-semibold text-slate-900 mb-6 text-center">How Aviator Tutor works</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            @foreach ([
-                ['step'=>'1','title'=>'Browse aviation tutors','body'=>'Filter by aircraft type, role, language and price. Review ratings and experience.'],
-                ['step'=>'2','title'=>'Check availability & book','body'=>'See calendars in your local time zone, pick a slot, pay securely.'],
-                ['step'=>'3','title'=>'Meet online & train','body'=>'Share charts, documents and scenarios live with your tutor.'],
-            ] as $item)
-                <div class="card">
-                    <div class="h-8 w-8 rounded-full bg-sky-100 flex items-center justify-center text-xs font-semibold text-sky-700 mb-3">{{ $item['step'] }}</div>
-                    <h3 class="text-base font-semibold text-slate-900 mb-1">{{ $item['title'] }}</h3>
-                    <p class="text-sm text-slate-600">{{ $item['body'] }}</p>
-                </div>
-            @endforeach
-        </div>
-    </section>
-
-    {{-- TESTIMONIALS + FAQ --}}
-    <section class="bg-white border-t border-slate-100">
-        <div class="app-container py-10 sm:py-12 grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <!-- HOW IT WORKS -->
+    <section class="at-section">
+        <div class="at-section-header">
             <div>
-                <h2 class="text-lg sm:text-xl font-semibold text-slate-900 mb-4">Hear it from aviation learners</h2>
-                <div class="space-y-3">
-                    @foreach ([
-                        ['name'=>'First Officer, Q400','text'=>'The captain walked me through our exact profiles and failures. My recurrent check felt like another lesson.'],
-                        ['name'=>'Cabin crew applicant','text'=>'Mock interviews, grooming checks, and service drills made me feel ready for assessment.'],
-                        ['name'=>'ATPL student','text'=>'Short, focused sessions after duty helped me clear performance and systems.'],
-                    ] as $review)
-                        <div class="card bg-slate-50">
-                            <div class="flex items-center mb-1 text-[11px]">
-                                <span class="text-amber-400 mr-1">★★★★★</span>
-                                <span class="text-slate-500">Verified learner</span>
-                            </div>
-                            <p class="text-slate-700 mb-1 text-sm">{{ $review['text'] }}</p>
-                            <p class="text-[11px] text-slate-500">{{ $review['name'] }}</p>
-                        </div>
-                    @endforeach
-                </div>
+                <div class="at-section-title">How Aviator Tutor works</div>
+                <p class="at-section-subtitle">
+                    Simple, flexible and built for aviation people who live with rosters, standbys and irregular days off.
+                </p>
             </div>
+        </div>
+
+        <div class="at-grid-3">
+            <div class="at-card">
+                <h3>1. Find your tutor</h3>
+                <p>Filter by role, aircraft type, language and hourly rate. See real airline and training experience.</p>
+            </div>
+            <div class="at-card">
+                <h3>2. Book a slot</h3>
+                <p>Pick a time that fits your duty pattern. Get reminders and manage sessions in your dashboard.</p>
+            </div>
+            <div class="at-card">
+                <h3>3. Train live online</h3>
+                <p>Share charts, SOPs and scenarios via video, screen share and whiteboards — focused on your goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE TRAIN -->
+    <section class="at-section">
+        <div class="at-section-header">
             <div>
-                <h2 class="text-lg sm:text-xl font-semibold text-slate-900 mb-4">Frequently asked questions</h2>
-                <div class="space-y-3">
-                    <details class="card bg-slate-50">
-                        <summary class="text-sm font-medium text-slate-900 cursor-pointer">Do I need special software for lessons?</summary>
-                        <p class="mt-2 text-xs text-slate-600">No. Use any modern device with camera/mic. We rely on browser-friendly video plus screen sharing.</p>
-                    </details>
-                    <details class="card bg-slate-50">
-                        <summary class="text-sm font-medium text-slate-900 cursor-pointer">Can I reschedule or cancel?</summary>
-                        <p class="mt-2 text-xs text-slate-600">Tutors set their own policies, but most allow rescheduling within a cutoff. You will see the rules before booking.</p>
-                    </details>
-                    <details class="card bg-slate-50">
-                        <summary class="text-sm font-medium text-slate-900 cursor-pointer">How do I become a tutor?</summary>
-                        <p class="mt-2 text-xs text-slate-600">Submit your aviation credentials via the Teach link. After approval, set your rate, schedule, and lesson types.</p>
-                    </details>
-                </div>
+                <div class="at-section-title">Built for the whole crew</div>
+                <p class="at-section-subtitle">
+                    Not a generic tutoring site. Aviator Tutor is focused only on aviation professionals and students.
+                </p>
+            </div>
+        </div>
+
+        <div class="at-grid-3">
+            <div class="at-card">
+                <h3>Pilots</h3>
+                <p>Type ratings, sim checks, LOFT, line training support, ATPL refreshers and interview preparation.</p>
+            </div>
+            <div class="at-card">
+                <h3>Cabin crew</h3>
+                <p>Initial and recurrent exam prep, service and safety roleplays, grooming and interview practice.</p>
+            </div>
+            <div class="at-card">
+                <h3>ATC & engineers</h3>
+                <p>Phraseology, ICAO English, technical interviews, systems refresh and exam prep.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED TUTORS (static for now, you can later replace with real data) -->
+    <section class="at-section">
+        <div class="at-section-header">
+            <div>
+                <div class="at-section-title">Featured tutors</div>
+                <p class="at-section-subtitle">
+                    A sample of the professionals you can book. You’ll be able to search and filter many more.
+                </p>
+            </div>
+            <a href="{{ url('/tutors') }}" class="at-btn at-btn-outline">Browse all tutors</a>
+        </div>
+
+        <div class="at-grid-3">
+            <div class="at-card">
+                <h3>Airline Training Captain</h3>
+                <p>Q400 / B737 · sim & line checks</p>
+                <p class="at-helptext" style="margin-top:0.5rem;">
+                    Checkride prep, abnormal drills, CRM/TEM and profiles, tailored to your airline’s SOPs.
+                </p>
+            </div>
+            <div class="at-card">
+                <h3>Cabin Crew Trainer</h3>
+                <p>Service · safety · interviews</p>
+                <p class="at-helptext" style="margin-top:0.5rem;">
+                    Mock assessments, safety questions, service flows and grooming feedback before your next interview.
+                </p>
+            </div>
+            <div class="at-card">
+                <h3>ATPL Ground Instructor</h3>
+                <p>Performance · systems · OPS</p>
+                <p class="at-helptext" style="margin-top:0.5rem;">
+                    Short, focused sessions to clear doubts and keep your theory fresh between flights.
+                </p>
             </div>
         </div>
     </section>
