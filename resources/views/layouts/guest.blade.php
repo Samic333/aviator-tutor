@@ -76,7 +76,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    height: 72px;
+    padding: 0 1.75rem;
 }
 
 .at-brand {
@@ -85,6 +86,7 @@ a {
     gap: 0.5rem;
     font-weight: 700;
     letter-spacing: 0.04em;
+    font-size: 1.15rem;
 }
 
 .at-brand-badge {
@@ -103,8 +105,8 @@ a {
 .at-nav-links {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    font-size: 0.95rem;
+    gap: 1.75rem;
+    font-size: 1.05rem;
 }
 
 .at-nav-links a {
@@ -120,7 +122,7 @@ a {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
 }
 
 .at-btn {
