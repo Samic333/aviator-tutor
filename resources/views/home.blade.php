@@ -2,20 +2,20 @@
 
 @section('content')
 <div class="bg-slate-50 min-h-screen">
-    {{-- Hero --}}
+    {{-- HERO --}}
     <section class="bg-gradient-to-b from-sky-50 via-white to-slate-50 border-b border-slate-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             <div class="space-y-5">
                 <p class="inline-flex items-center text-[11px] font-semibold text-sky-700 bg-sky-50 px-3 py-1 rounded-full">
                     <span class="h-2 w-2 rounded-full bg-emerald-500 mr-2"></span>
-                    Built by airline pros · 1:1 live aviation coaching
+                    Live aviation coaching • pilots • cabin crew • ATC • engineers
                 </p>
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
-                    Train with real pilots, cabin crew, ATC & engineers.
+                    Train with real aviation professionals, anywhere in the world.
                 </h1>
                 <p class="text-sm sm:text-base text-slate-600 max-w-2xl">
-                    Aviator Tutor connects you with verified aviation professionals for checkrides, type ratings, interviews,
-                    SOP refreshers, and real-world scenario training—scheduled in your local time.
+                    Aviator Tutor connects you with verified airline instructors for checkrides, type ratings, interviews,
+                    SOP refreshers, and realistic scenario training—scheduled in your local time.
                 </p>
                 <div class="flex flex-wrap gap-3">
                     <a href="{{ route('tutors.index') }}" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-sky-600 text-white hover:bg-sky-700 shadow-sm">
@@ -36,11 +36,11 @@
                 <div class="flex items-center">
                     <div class="h-12 w-12 rounded-full bg-sky-100 flex items-center justify-center text-sky-700 font-semibold text-sm mr-3">
                         AT
-                    </div>
-                    <div>
-                        <p class="text-sm font-semibold text-slate-900">Airline Training Captain · Q400/B737</p>
-                        <p class="text-[11px] text-slate-500">Recurrent checks · Abnormals · CRM/TEM</p>
-                    </div>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-slate-900">Airline Training Captain · Q400/B737</p>
+                    <p class="text-[11px] text-slate-500">Recurrent checks · Abnormals · CRM/TEM</p>
+                </div>
                 </div>
                 <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-600">
                     <div class="bg-slate-50 rounded-2xl px-3 py-2">
@@ -150,7 +150,7 @@
                     @foreach ([
                         ['name'=>'First Officer, Q400','text'=>'The captain walked me through our exact profiles and failures. My recurrent check felt like another lesson.'],
                         ['name'=>'Cabin crew applicant','text'=>'Mock interviews, grooming checks, and service drills made me feel ready for assessment.'],
-                        ['name'=>'ATPL student','text'=>'Short, focused sessions after duty helped me finally clear performance & systems.'],
+                        ['name'=>'ATPL student','text'=>'Short, focused sessions after duty helped me clear performance and systems.'],
                     ] as $review)
                         <div class="bg-slate-50 rounded-3xl border border-slate-100 px-4 py-3 text-xs">
                             <div class="flex items-center mb-1">
@@ -168,20 +168,19 @@
                 <div class="space-y-3">
                     <details class="bg-slate-50 rounded-2xl px-4 py-3">
                         <summary class="text-sm font-medium text-slate-900 cursor-pointer">Do I need special software for lessons?</summary>
-                        <p class="mt-2 text-xs text-slate-600">No. Just a solid connection and a device with camera and mic. We use browser-friendly video tools plus screen sharing.</p>
+                        <p class="mt-2 text-xs text-slate-600">No. Use any modern device with camera/mic. We rely on browser-friendly video plus screen sharing.</p>
                     </details>
                     <details class="bg-slate-50 rounded-2xl px-4 py-3">
                         <summary class="text-sm font-medium text-slate-900 cursor-pointer">Can I reschedule or cancel?</summary>
-                        <p class="mt-2 text-xs text-slate-600">Tutors set their policies, but most allow rescheduling before a cutoff. You’ll see the rules before you confirm.</p>
+                        <p class="mt-2 text-xs text-slate-600">Tutors set their own policies, but most allow rescheduling within a cutoff. You will see the rules before booking.</p>
                     </details>
                     <details class="bg-slate-50 rounded-2xl px-4 py-3">
                         <summary class="text-sm font-medium text-slate-900 cursor-pointer">How do I become a tutor?</summary>
-                        <p class="mt-2 text-xs text-slate-600">Submit your aviation credentials via the <strong>Teach</strong> link. After approval, set your rate, schedule and lesson types.</p>
+                        <p class="mt-2 text-xs text-slate-600">Submit your aviation credentials via the Teach link. After approval, set your rate, schedule, and lesson types.</p>
                     </details>
                 </div>
             </div>
         </div>
     </section>
-
 </div>
 @endsection
