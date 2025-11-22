@@ -58,105 +58,125 @@ a {
 .at-nav {
     position: sticky;
     top: 0;
-    z-index: 50;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-}
-
-.at-nav-inner,
-.at-main-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 1.25rem;
+    z-index: 40;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .at-nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0.75rem 1.75rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
-    padding: 0 1.75rem;
+    gap: 1.5rem;
 }
 
 .at-brand {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    font-size: 1.15rem;
+    gap: 0.6rem;
+    text-decoration: none;
 }
 
 .at-brand-badge {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: 999px;
-    background: linear-gradient(135deg, var(--at-primary), #38bdf8);
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 0.95rem;
     font-weight: 700;
+    font-size: 0.95rem;
 }
 
-.at-nav-links {
+.at-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.at-brand-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.at-brand-subtitle {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.at-nav-menu {
     display: flex;
     align-items: center;
     gap: 1.75rem;
-    font-size: 1.05rem;
+    font-size: 1.02rem;
 }
 
-.at-nav-links a {
-    color: var(--at-text-muted);
+.at-nav-menu a {
+    color: #4b5563;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.at-nav-menu a:hover {
+    color: #111827;
+}
+
+.at-nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 1.02rem;
+}
+
+.at-nav-link {
+    color: #4b5563;
+    text-decoration: none;
     font-weight: 500;
 }
 
-.at-nav-links a:hover {
-    color: var(--at-text-main);
-}
-
-.at-nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1.05rem;
+.at-nav-link:hover {
+    color: #111827;
 }
 
 .at-btn {
     border-radius: 999px;
     border: 1px solid transparent;
-    padding: 0.45rem 1rem;
+    padding: 0.45rem 1.1rem;
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.35rem;
-    transition: all 0.18s ease-out;
+    gap: 0.3rem;
+    text-decoration: none;
 }
 
 .at-btn-primary {
-    background: linear-gradient(135deg, var(--at-primary), #1d4ed8);
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
     color: #ffffff;
-    box-shadow: 0 18px 45px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 18px 45px rgba(37, 99, 235, 0.35);
 }
 
 .at-btn-primary:hover {
+    box-shadow: 0 22px 60px rgba(37, 99, 235, 0.5);
     transform: translateY(-1px);
-    box-shadow: 0 22px 60px rgba(37, 99, 235, 0.55);
 }
 
-.at-btn-ghost {
+.at-btn-outline {
     background-color: transparent;
-    border-color: rgba(148, 163, 184, 0.6);
-    color: var(--at-text-main);
+    border-color: #cbd5f5;
+    color: #1e293b;
 }
 
-.at-btn-ghost:hover {
-    background-color: rgba(148, 163, 184, 0.06);
+.at-btn-outline:hover {
+    background-color: #eef2ff;
 }
 
 .at-main {
@@ -165,62 +185,101 @@ a {
 }
 
 .at-main-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
     width: 100%;
 }
 
 .at-footer {
     background-color: #ffffff;
-    border-top: 1px solid rgba(148, 163, 184, 0.25);
+    border-top: 1px solid #e5e7eb;
     padding: 2rem 0;
+    margin-top: 2rem;
 }
 
 .at-footer-inner {
     max-width: 1120px;
     margin: 0 auto;
+    padding: 0 1.5rem;
     text-align: center;
-    padding: 0 1.25rem;
+    font-size: 0.95rem;
+    color: #6b7280;
 }
 
 .at-footer-brand {
-    font-size: 1rem;
-    color: #6b7280;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .at-footer-links {
     display: flex;
-    justify-content: center;
-    gap: 1.25rem;
+    gap: 1.2rem;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0.75rem;
 }
 
 .at-footer-links a {
     color: #6b7280;
-    font-size: 0.95rem;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .at-footer-links a:hover {
-    color: #0f172a;
+    color: #111827;
 }
 
-@media (max-width: 900px) {
+.at-footer-copy {
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+/* Simple responsive tweak: hide full menu on very small screens for now */
+@media (max-width: 768px) {
     .at-nav-inner {
-        padding-inline: 1rem;
+        padding-inline: 1.2rem;
+        gap: 1rem;
     }
-}
-
-@media (max-width: 640px) {
-    .at-nav-links {
+    .at-nav-menu {
         display: none;
     }
-    .at-main {
-        padding-top: 1rem;
+    .at-nav-auth {
+        font-size: 0.95rem;
     }
 }
 </style>
     </head>
     <body class="font-sans antialiased at-page text-[var(--at-text-main)] flex flex-col">
-        @include('partials.nav')
+        <header class="at-nav">
+            <div class="at-nav-inner">
+                <a href="{{ url('/') }}" class="at-brand">
+                    <span class="at-brand-badge">AT</span>
+                    <span class="at-brand-text">
+                        <span class="at-brand-title">Aviator Tutor</span>
+                        <span class="at-brand-subtitle">Train with aviation pros</span>
+                    </span>
+                </a>
+
+                <nav class="at-nav-menu">
+                    <a href="{{ url('/') }}">Home</a>
+                    <a href="{{ url('/tutors') }}">Browse Tutors</a>
+                    <a href="{{ url('/specialties') }}">Specialties</a>
+                    <a href="{{ url('/how-it-works') }}">How it works</a>
+                    <a href="{{ url('/teach') }}">Teach</a>
+                </nav>
+
+                <div class="at-nav-auth">
+                    @guest
+                        <a href="{{ route('login') }}" class="at-nav-link">Sign in</a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="at-btn at-btn-primary">Join for free</a>
+                        @endif
+                    @else
+                        <a href="{{ url('/dashboard') }}" class="at-btn at-btn-outline">Dashboard</a>
+                    @endguest
+                </div>
+            </div>
+        </header>
 
         <!-- Page Content -->
         <main class="at-main">
@@ -229,6 +288,22 @@ a {
             </div>
         </main>
 
-        @includeWhen(View::exists('partials.footer'), 'partials.footer')
+        <footer class="at-footer">
+            <div class="at-footer-inner">
+                <div class="at-footer-brand">
+                    <strong>AT</strong> Aviator Tutor — Train with aviation pros
+                </div>
+                <div class="at-footer-links">
+                    <a href="{{ url('/tutors') }}">Browse Tutors</a>
+                    <a href="{{ url('/specialties') }}">Specialties</a>
+                    <a href="{{ url('/about') }}">About</a>
+                    <a href="{{ url('/faq') }}">FAQ</a>
+                    <a href="{{ url('/contact') }}">Contact</a>
+                </div>
+                <div class="at-footer-copy">
+                    © {{ date('Y') }} Aviator Tutor. Built by aviation professionals.
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
