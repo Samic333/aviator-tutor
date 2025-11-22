@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -53,95 +53,6 @@ a {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-.at-nav {
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.at-nav-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0.75rem 1.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-}
-
-.at-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-}
-
-.at-brand-badge {
-    width: 34px;
-    height: 34px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #2563eb, #38bdf8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 0.95rem;
-}
-
-.at-brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-}
-
-.at-brand-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #0f172a;
-}
-
-.at-brand-subtitle {
-    font-size: 0.8rem;
-    color: #6b7280;
-}
-
-.at-nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    font-size: 1.02rem;
-}
-
-.at-nav-menu a {
-    color: #4b5563;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.at-nav-menu a:hover {
-    color: #111827;
-}
-
-.at-nav-auth {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    font-size: 1.02rem;
-}
-
-.at-nav-link {
-    color: #4b5563;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.at-nav-link:hover {
-    color: #111827;
 }
 
 .at-btn {
@@ -233,53 +144,10 @@ a {
     font-size: 0.85rem;
     color: #9ca3af;
 }
-
-/* Simple responsive tweak: hide full menu on very small screens for now */
-@media (max-width: 768px) {
-    .at-nav-inner {
-        padding-inline: 1.2rem;
-        gap: 1rem;
-    }
-    .at-nav-menu {
-        display: none;
-    }
-    .at-nav-auth {
-        font-size: 0.95rem;
-    }
-}
 </style>
     </head>
     <body class="font-sans antialiased at-page text-[var(--at-text-main)] flex flex-col">
-        <header class="at-nav">
-            <div class="at-nav-inner">
-                <a href="{{ url('/') }}" class="at-brand">
-                    <span class="at-brand-badge">AT</span>
-                    <span class="at-brand-text">
-                        <span class="at-brand-title">Aviator Tutor</span>
-                        <span class="at-brand-subtitle">Train with aviation pros</span>
-                    </span>
-                </a>
-
-                <nav class="at-nav-menu">
-                    <a href="{{ url('/') }}">Home</a>
-                    <a href="{{ url('/tutors') }}">Browse Tutors</a>
-                    <a href="{{ url('/specialties') }}">Specialties</a>
-                    <a href="{{ url('/how-it-works') }}">How it works</a>
-                    <a href="{{ url('/teach') }}">Teach</a>
-                </nav>
-
-                <div class="at-nav-auth">
-                    @guest
-                        <a href="{{ route('login') }}" class="at-nav-link">Sign in</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="at-btn at-btn-primary">Join for free</a>
-                        @endif
-                    @else
-                        <a href="{{ url('/dashboard') }}" class="at-btn at-btn-outline">Dashboard</a>
-                    @endguest
-                </div>
-            </div>
-        </header>
+        @include('layouts.navbar')
 
         <!-- Page Content -->
         <main class="at-main">
@@ -301,9 +169,11 @@ a {
                     <a href="{{ url('/contact') }}">Contact</a>
                 </div>
                 <div class="at-footer-copy">
-                    © {{ date('Y') }} Aviator Tutor. Built by aviation professionals.
+                    Â© {{ date('Y') }} Aviator Tutor. Built by aviation professionals.
                 </div>
             </div>
         </footer>
     </body>
 </html>
+
+
