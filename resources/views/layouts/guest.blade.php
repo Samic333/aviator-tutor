@@ -13,14 +13,16 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased bg-[var(--at-bg)] text-[var(--at-text-main)]">
+        <div class="min-h-screen flex flex-col">
             @include('partials.nav')
 
             <!-- Page Content: auth pages inject their $slot here -->
-            <main class="min-h-screen bg-sky-50/40 flex items-center justify-center px-4">
+            <main class="flex-1 bg-slate-50 flex items-center justify-center px-4 py-8">
                 {{ $slot }}
             </main>
+
+            @includeWhen(View::exists('partials.footer'), 'partials.footer')
         </div>
     </body>
 </html>
